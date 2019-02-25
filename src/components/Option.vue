@@ -38,6 +38,7 @@
           'vue-treeselect__option': true,
           'vue-treeselect__option--disabled': node.isDisabled,
           'vue-treeselect__option--selected': instance.isSelected(node),
+          'vue-treeselect__option--expanded': this.shouldExpand,
           'vue-treeselect__option--highlight': node.isHighlighted,
           'vue-treeselect__option--matched': instance.localSearch.active && node.isMatched,
           'vue-treeselect__option--hide': !this.shouldShow,

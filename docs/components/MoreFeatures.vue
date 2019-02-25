@@ -12,6 +12,9 @@
       :close-on-select="closeOnSelect"
       :always-open="alwaysOpen"
       :append-to-body="appendToBody"
+      :exclusive="exclusive"
+      :flatten-search-results="flattenSearchResults"
+      :disable-branch-nodes="disableBranchNodes"
       :options="options"
       :limit="3"
       :max-height="200"
@@ -36,6 +39,11 @@
       <label><input type="checkbox" v-model="alwaysOpen">Always open</label>
       <label><input type="checkbox" v-model="appendToBody">Append to body</label>
     </p>
+    <p>
+      <label><input type="checkbox" v-model="exclusive">Exclusive</label>
+      <label><input type="checkbox" v-model="flattenSearchResults">Flatten Search Results</label>
+      <label><input type="checkbox" v-model="disableBranchNodes">Disable Branch Nodes</label>
+    </p>
   </div>
 </template>
 
@@ -54,6 +62,9 @@
       closeOnSelect: false,
       alwaysOpen: false,
       appendToBody: false,
+      exclusive: false,
+      flattenSearchResults: false,
+      disableBranchNodes: false,
       value: [ 'a' ],
       options: generateOptions(2, 3),
     }),

@@ -661,6 +661,14 @@ export default {
       type: [ Number, String ],
       default: 999,
     },
+
+    /**
+     * Only allow one section open at a time.
+     */
+    exclusive: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
@@ -1368,6 +1376,7 @@ export default {
     },
 
     shouldOptionBeIncludedInSearchResult(node) {
+      if (node.isBranch && this.disableBranchNodes) return false
       // 1) This option is matched.
       if (node.isMatched) return true
       // 2) This option is not matched, but has matched descendant(s).
@@ -1496,6 +1505,17 @@ export default {
     },
 
     toggleExpanded(node) {
+      if (this.exclusive) {
+        Object.keys(this.forest.nodeMap).forEach(key => {
+          this.forest.nodeMap[key].isExpanded = false
+        })
+        node.isExpanded = true
+        if (!node.childrenStates.isLoaded) {
+          this.loadChildrenOptions(node)
+        }
+        return
+      }
+
       let nextState
 
       if (this.localSearch.active) {

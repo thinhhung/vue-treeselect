@@ -34,9 +34,9 @@
 
       return (
         <div class="vue-treeselect__multi-value-item-container">
-          <div class={itemClass} onMousedown={this.handleMouseDown}>
+          <div class={itemClass}>
             <span class="vue-treeselect__multi-value-label">{ labelRenderer }</span>
-            <span class="vue-treeselect__icon vue-treeselect__value-remove"><DeleteIcon /></span>
+            <span class="vue-treeselect__icon vue-treeselect__value-remove" onMousedown={this.handleMouseDown}><DeleteIcon /></span>
           </div>
         </div>
       )

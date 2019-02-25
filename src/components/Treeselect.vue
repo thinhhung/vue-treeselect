@@ -16,6 +16,7 @@
           'vue-treeselect--single': this.single,
           'vue-treeselect--multi': this.multiple,
           'vue-treeselect--searchable': this.searchable,
+          'vue-treeselect--searching': this.localSearch.active,
           'vue-treeselect--disabled': this.disabled,
           'vue-treeselect--focused': this.trigger.isFocused,
           'vue-treeselect--has-value': this.hasValue,
