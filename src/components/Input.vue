@@ -90,7 +90,7 @@
 
         // #15
         // istanbul ignore next
-        if (document.activeElement === instance.$refs.menu) {
+        if (document.activeElement === instance.$refs.menu || instance.$refs.wrapper.contains(document.activeElement)) {
           return this.focus()
         }
 
